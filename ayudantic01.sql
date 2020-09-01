@@ -57,7 +57,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `is
 (2, 'Tutor', 'tutor@company.com', NULL, '$2y$10$ve/RtGV6USmyyg9pS7ofBeb/1U8Wxi9Ca4eAv2.Ql5RgIs.xTyYcO', 1, NULL, '2020-09-01 09:30:08', '2020-09-01 09:30:08'),
 (3, 'Kevin', 'kvasconezl@espol.edu.ec', NULL, '$2y$10$X1Xi4e/UT9t33uCfh6oUF.9fkIATnVsqQowBGeBB0Q1lrJj1zJdxu', 0, NULL, '2020-09-01 09:30:41', '2020-09-01 09:30:41');
 
-DROP TABLE IF EXISTS `UserTutors`;
+DROP TABLE IF EXISTS `user_tutors`;
 CREATE TABLE IF NOT EXISTS `UserTutors` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) UNSIGNED NOT NULL,
