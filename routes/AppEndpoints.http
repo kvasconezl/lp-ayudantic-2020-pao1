@@ -1,0 +1,28 @@
+GET {{host}}/users/getAlumnos
+Content-Type: application/json
+###
+
+GET {{host}}/users/getAlumno
+Content-Type: application/json
+{
+    "id": 1
+}
+###
+
+GET {{host}}/users/getTutores
+Content-Type: application/json
+###
+
+GET {{host}}/users/getTutor
+Content-Type: application/json
+{
+    "id": 2
+}
+###
+
+POST {{host}}/users/setPreferido
+Content-Type: application/json
+{
+    "user_id": 1,
+    "tutor_id": 2
+}
