@@ -119,8 +119,8 @@ class UserController extends AbsoluteController{
 
 		if ($user->count() > 0 && $tutor->count() > 0){
 			$relacion = UserTutor::firstOrCreate(
-			    ['user_id' =>  $request->user_id],
-			    ['tutor_id' => $request->tutor_id]
+			    ['user_id' =>  $request->user_id,
+			    'tutor_id' => $request->tutor_id]
 			);
 			return response()->json($relacion);
 		}
