@@ -26,13 +26,3 @@ Route::group(['prefix' => 'users'], function() {
 
 	Route::post('setPreferido', 'UserController@setPreferido');
 });
-
-
-Route::group(['prefix' => 'tutorias'], function() {
-	Route::get('getTutorias', 'TutoriaController@getTutorias');
-	Route::get('getTutoria', 'TutoriaController@getTutoria');
-	Route::get('getExpress', 'TutoriaController@getExpress');
-	Route::get('getRegular', 'TutoriaController@getRegular');
-
-	Route::post('setTutoria', 'TutoriaController@setTutoria');
-});
