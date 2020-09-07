@@ -128,7 +128,7 @@ class TutoriaController extends AbsoluteController
 
 		if ($user->count() > 0 && $tutor->count() > 0) {
 			$relacion = Tutoria::firstOrCreate(
-				['user_id' =>  $request->user_id, 'tutor_id' => $request->tutor_id, 'type_id' => $request->type]
+				['user_id' =>  $request->user_id, 'tutor_id' => $request->tutor_id, 'type' => $request->type]
 			);
 			return response()->json($relacion);
 		}
