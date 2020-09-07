@@ -21,6 +21,14 @@ class Tutoria extends Model
     public $incrementing = true;
 
     /**
+     * Indicates if the table has timestamps.
+     * 
+     * @var bool
+     */
+    public $timestamps = false;
+
+
+    /**
      * @var array
      */
     protected $fillable = ['user_id', 'tutor_id', 'type'];

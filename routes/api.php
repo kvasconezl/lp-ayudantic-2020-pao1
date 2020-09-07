@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+	return $request->user();
 });
 
-Route::group(['prefix' => 'users'], function() {
+Route::group(['prefix' => 'users'], function () {
 	Route::get('getAlumnos', 'UserController@getAlumnos');
 	Route::get('getAlumno', 'UserController@getAlumno');
 	Route::get('getTutores', 'UserController@getTutores');
@@ -28,11 +28,10 @@ Route::group(['prefix' => 'users'], function() {
 });
 
 
-Route::group(['prefix' => 'tutorias'], function() {
+Route::group(['prefix' => 'tutorias'], function () {
 	Route::get('getTutorias', 'TutoriaController@getTutorias');
 	Route::get('getTutoria', 'TutoriaController@getTutoria');
 	Route::get('getExpress', 'TutoriaController@getExpress');
 	Route::get('getRegular', 'TutoriaController@getRegular');
-
 	Route::post('setTutoria', 'TutoriaController@setTutoria');
 });
