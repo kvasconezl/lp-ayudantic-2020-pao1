@@ -24,6 +24,7 @@ Route::group(['prefix' => 'users'], function () {
 	Route::get('getTutores', 'UserController@getTutores');
 	Route::get('getTutor', 'UserController@getTutor');
 
+	Route::get('getPreferidos', 'UserController@getPreferidos');
 	Route::post('setPreferido', 'UserController@setPreferido');
 });
 

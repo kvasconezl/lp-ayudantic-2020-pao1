@@ -106,12 +106,12 @@ class UserController extends AbsoluteController{
 			'tutor_id' => 'required|integer'
 		]);
 
-		$user = $user = DB::table('users')
+		$user = DB::table('users')
 				->where([['isTutor', 0],
 						['id', $request->user_id]])
 				->select('id', 'name', 'email')
 				->get();
-		$tutor = $user = DB::table('users')
+		$tutor = DB::table('users')
 				->where([['isTutor', 1],
 						['id', $request->tutor_id]])
 				->select('id', 'name', 'email')
@@ -123,6 +123,43 @@ class UserController extends AbsoluteController{
 			    'tutor_id' => $request->tutor_id]
 			);
 			return response()->json($relacion);
+		}
+		return response()->json(['error' => 'Illegal ID'], 500);
+	}
+	
+	/**
+	 * @param Request $request
+	 * @return JsonResponse
+	 */
+	public function getPreferidos(Request $request): JsonResponse {
+
+		$request->validate([
+			'user_id' => 'required|integer'
+		]);
+
+		$user = DB::table('users')
+				->where('id', $request->user_id)
+				->select('id', 'name', 'email')
+				->get();
+
+		if ($user->count() > 0){
+			$sqSeguidos = parent::unwrapArray((array)DB::table('UserTutors')
+			->where('user_id', $request->user_id)
+			->select('tutor_id as id')
+			->get());
+			
+			$tmp = array();
+			
+			foreach($sqSeguidos as $s){
+				array_push($tmp, $s->id);
+			}
+			
+			$seguidos = DB::table('users')
+			->whereIn('id', $tmp)
+			->select('id', 'name', 'email')
+			->get();
+			
+			return response()->json($seguidos);
 		}
 		return response()->json(['error' => 'Illegal ID'], 500);
 	}
